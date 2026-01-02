@@ -3,35 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemsaz Pide Dijital Kasa</title>
+<title>Gemsaz Pide Dijital Kasa</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{--primary:#00e5ff;}
+:root{--c:#00e5ff}
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:Poppins,sans-serif;
-  background:linear-gradient(180deg,#05070a,#0b0f14);
+  background:#0b0f14;
   color:#eaeaea;
 }
 header{
-  padding:24px;
   text-align:center;
+  padding:20px;
   background:#020617;
-  box-shadow:0 0 25px rgba(0,229,255,.4);
+  box-shadow:0 0 20px rgba(0,229,255,.4);
 }
-.container{max-width:1100px;margin:auto;padding:15px}
+.container{max-width:1200px;margin:auto;padding:15px}
+
 .category{margin:30px 0}
 .category h2{
+  border-left:6px solid var(--c);
+  padding-left:10px;
   margin-bottom:15px;
-  border-left:6px solid var(--primary);
-  padding-left:12px;
   color:#bff6ff;
 }
 .menu-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:15px;
 }
 .card{
@@ -40,60 +41,42 @@ header{
   padding:16px;
   cursor:pointer;
   border:1px solid rgba(0,229,255,.2);
-  transition:.3s;
+  transition:.25s;
 }
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 25px rgba(0,229,255,.5);
+  transform:translateY(-4px);
+  box-shadow:0 0 20px rgba(0,229,255,.4);
 }
-.card h3{font-size:17px}
-.card p{font-size:13px;color:#9fb3c8;margin:6px 0}
-.price span{
-  font-size:20px;
-  font-weight:700;
-  color:var(--primary);
-}
+.card h3{font-size:15px}
+.price{margin-top:6px;font-size:20px;font-weight:700;color:var(--c)}
 
-/* KASA */
 #kasa{
   position:fixed;
   right:20px;
   bottom:20px;
-  width:320px;
+  width:330px;
   background:#020617;
   border-radius:18px;
   padding:15px;
-  box-shadow:0 0 35px rgba(0,229,255,.6);
   border:1px solid rgba(0,229,255,.3);
-  z-index:999;
+  box-shadow:0 0 30px rgba(0,229,255,.6);
 }
-#kasa h3{text-align:center;color:var(--primary);margin-bottom:10px}
-#sepet{
-  list-style:none;
-  max-height:230px;
-  overflow:auto;
-  margin-bottom:10px;
-}
-#sepet li{font-size:13px;margin-bottom:6px}
-.toplam{
-  font-size:18px;
-  font-weight:700;
-  text-align:center;
-  margin-bottom:8px;
-}
+#kasa h3{text-align:center;color:var(--c);margin-bottom:10px}
+#sepet{list-style:none;max-height:230px;overflow:auto}
+#sepet li{font-size:13px;margin-bottom:5px}
+.toplam{text-align:center;font-size:18px;font-weight:700;margin:10px 0}
 #kasa button{
   width:100%;
+  margin-top:6px;
   padding:10px;
   border:none;
   border-radius:10px;
-  background:var(--primary);
-  color:#000;
   font-weight:600;
   cursor:pointer;
-  margin-top:6px;
 }
+.primary{background:var(--c);color:#000}
+.danger{background:#ef4444;color:#000}
 
-/* ÖDEME MODAL */
 #odemeModal{
   position:fixed;
   inset:0;
@@ -101,27 +84,24 @@ header{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:999;
 }
-#odemeKutu{
+#odemeBox{
   background:#020617;
   padding:20px;
   border-radius:16px;
   width:260px;
   text-align:center;
-  box-shadow:0 0 30px rgba(0,229,255,.6);
+  box-shadow:0 0 25px rgba(0,229,255,.5);
 }
-#odemeKutu h3{
-  color:var(--primary);
-  margin-bottom:15px;
-}
-#odemeKutu button{
+#odemeBox h4{margin-bottom:15px;color:var(--c)}
+#odemeBox button{
   width:100%;
   padding:10px;
-  margin-top:10px;
+  margin-top:8px;
   border:none;
   border-radius:10px;
-  font-weight:600;
+  font-weight:700;
   cursor:pointer;
 }
 .nakit{background:#22c55e;color:#000}
@@ -132,66 +112,66 @@ header{
 <body>
 
 <header>
-<h1>Gemsaz Pide Salonu</h1>
-<p>Dijital Menü • Kasa</p>
+  <h1>Gemsaz Pide Salonu</h1>
+  <p>Dijital Kasa Sistemi</p>
 </header>
 
 <div class="container">
 
 <!-- PIDELER -->
 <section class="category"><h2>Pideler</h2><div class="menu-grid">
-<div class="card"><h3>Kaşarlı Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Kaşarlı Sucuklu Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Kıymalı Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Kıymalı Kaşarlı Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Kuşbaşılı Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Kuşbaşı Kaşarlı Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Karışık Pide</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>1.5 Porsiyon Pide</h3><div class="price"><span>550</span> ₺</div></div>
+<div class="card"><h3>Kaşarlı Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Kaşarlı Sucuklu Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Kıymalı Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Kıymalı Kaşarlı Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Kuşbaşılı Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Kuşbaşı Kaşarlı Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Karışık Pide</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>1.5 Porsiyon Pide</h3><div class="price">550 ₺</div></div>
 </div></section>
 
 <!-- LAHMACUN -->
 <section class="category"><h2>Lahmacunlar</h2><div class="menu-grid">
-<div class="card"><h3>Lahmacun</h3><div class="price"><span>150</span> ₺</div></div>
-<div class="card"><h3>Kaşarlı Lahmacun</h3><div class="price"><span>200</span> ₺</div></div>
+<div class="card"><h3>Lahmacun</h3><div class="price">150 ₺</div></div>
+<div class="card"><h3>Kaşarlı Lahmacun</h3><div class="price">200 ₺</div></div>
 </div></section>
 
 <!-- DÖNER -->
 <section class="category"><h2>Yaprak Döner</h2><div class="menu-grid">
-<div class="card"><h3>Lavaş Dürüm</h3><div class="price"><span>350</span> ₺</div></div>
-<div class="card"><h3>Tombik Dürüm</h3><div class="price"><span>350</span> ₺</div></div>
-<div class="card"><h3>Döner Porsiyon</h3><div class="price"><span>450</span> ₺</div></div>
-<div class="card"><h3>1.5 Porsiyon Döner</h3><div class="price"><span>600</span> ₺</div></div>
+<div class="card"><h3>Lavaş Dürüm</h3><div class="price">350 ₺</div></div>
+<div class="card"><h3>Tombik Dürüm</h3><div class="price">350 ₺</div></div>
+<div class="card"><h3>Döner Porsiyon</h3><div class="price">450 ₺</div></div>
+<div class="card"><h3>1.5 Porsiyon Döner</h3><div class="price">600 ₺</div></div>
 </div></section>
 
 <!-- IZGARA -->
 <section class="category"><h2>Izgaralar</h2><div class="menu-grid">
-<div class="card"><h3>Tavuk Şiş</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Tavuk Pirzola</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Tavuk Kanat</h3><div class="price"><span>360</span> ₺</div></div>
-<div class="card"><h3>Izgara Köfte</h3><div class="price"><span>360</span> ₺</div></div>
+<div class="card"><h3>Tavuk Şiş</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Tavuk Pirzola</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Tavuk Kanat</h3><div class="price">360 ₺</div></div>
+<div class="card"><h3>Izgara Köfte</h3><div class="price">360 ₺</div></div>
 </div></section>
 
 <!-- İÇECEK -->
 <section class="category"><h2>İçecekler</h2><div class="menu-grid">
-<div class="card"><h3>Kola</h3><div class="price"><span>100</span> ₺</div></div>
-<div class="card"><h3>1 lt Kola</h3><div class="price"><span>150</span> ₺</div></div>
-<div class="card"><h3>Ayran</h3><div class="price"><span>50</span> ₺</div></div>
-<div class="card"><h3>1 lt Ayran</h3><div class="price"><span>150</span> ₺</div></div>
-<div class="card"><h3>Gazoz</h3><div class="price"><span>50</span> ₺</div></div>
-<div class="card"><h3>Şalgam</h3><div class="price"><span>50</span> ₺</div></div>
-<div class="card"><h3>Soda</h3><div class="price"><span>35</span> ₺</div></div>
-<div class="card"><h3>Şıra</h3><div class="price"><span>100</span> ₺</div></div>
-<div class="card"><h3>Su</h3><div class="price"><span>25</span> ₺</div></div>
-<div class="card"><h3>Türk Kahvesi</h3><div class="price"><span>100</span> ₺</div></div>
+<div class="card"><h3>Kola</h3><div class="price">100 ₺</div></div>
+<div class="card"><h3>1 lt Kola</h3><div class="price">150 ₺</div></div>
+<div class="card"><h3>Ayran</h3><div class="price">50 ₺</div></div>
+<div class="card"><h3>1 lt Ayran</h3><div class="price">150 ₺</div></div>
+<div class="card"><h3>Gazoz</h3><div class="price">50 ₺</div></div>
+<div class="card"><h3>Şalgam</h3><div class="price">50 ₺</div></div>
+<div class="card"><h3>Soda</h3><div class="price">35 ₺</div></div>
+<div class="card"><h3>Şıra</h3><div class="price">100 ₺</div></div>
+<div class="card"><h3>Su</h3><div class="price">25 ₺</div></div>
+<div class="card"><h3>Türk Kahvesi</h3><div class="price">100 ₺</div></div>
 </div></section>
 
 <!-- TATLI -->
 <section class="category"><h2>Tatlılar</h2><div class="menu-grid">
-<div class="card"><h3>Sütlaç</h3><div class="price"><span>125</span> ₺</div></div>
-<div class="card"><h3>Künefe</h3><div class="price"><span>200</span> ₺</div></div>
-<div class="card"><h3>Gül Tatlısı</h3><div class="price"><span>200</span> ₺</div></div>
-<div class="card"><h3>Kara Katmer</h3><div class="price"><span>200</span> ₺</div></div>
+<div class="card"><h3>Sütlaç</h3><div class="price">125 ₺</div></div>
+<div class="card"><h3>Künefe</h3><div class="price">200 ₺</div></div>
+<div class="card"><h3>Gül Tatlısı</h3><div class="price">200 ₺</div></div>
+<div class="card"><h3>Kara Katmer</h3><div class="price">200 ₺</div></div>
 </div></section>
 
 </div>
@@ -200,86 +180,98 @@ header{
 <div id="kasa">
 <h3>🧮 Kasa</h3>
 <ul id="sepet"></ul>
-<div class="toplam">Toplam: <span id="toplamFiyat">0</span> ₺</div>
-<button onclick="odemeSor()">🧾 Fiş Yazdır</button>
-<button onclick="sepetiTemizle()">🗑️ Sepeti Temizle</button>
+<div class="toplam">Toplam: <span id="toplam">0</span> ₺</div>
+<button class="primary" onclick="odemeSor()">💾 Satışı Kaydet</button>
+<button onclick="logGoster()">📊 Satış Logları</button>
+<button class="danger" onclick="sepetTemizle()">🗑️ Sepeti Temizle</button>
 </div>
 
-<!-- ÖDEME SEÇİMİ -->
+<!-- ÖDEME -->
 <div id="odemeModal">
-  <div id="odemeKutu">
-    <h3>Ödeme Türü</h3>
-    <button class="nakit" onclick="fisYazdir('Nakit')">💵 Nakit</button>
-    <button class="kart" onclick="fisYazdir('Kart')">💳 Kart</button>
+  <div id="odemeBox">
+    <h4>Ödeme Türü</h4>
+    <button class="nakit" onclick="satisKaydet('Nakit')">💵 Nakit</button>
+    <button class="kart" onclick="satisKaydet('Kart')">💳 Kart</button>
   </div>
 </div>
 
-<!-- FİŞ -->
-<div id="fis" style="display:none">
-<h2 style="text-align:center">Gemsaz Pide Salonu</h2>
-<p id="fisTarih"></p>
-<hr>
-<ul id="fisUrunler"></ul>
-<hr>
-<p><strong>Ödeme:</strong> <span id="fisOdeme"></span></p>
-<p><strong>Toplam:</strong> <span id="fisToplam"></span> ₺</p>
-<p style="text-align:center;margin-top:20px">Afiyet Olsun</p>
-</div>
-
 <script>
-const sepet={}, sepetList=document.getElementById("sepet"), toplamSpan=document.getElementById("toplamFiyat");
+const sepet={}, sepetUI=document.getElementById("sepet"), toplamUI=document.getElementById("toplam");
 
 document.querySelectorAll(".card").forEach(c=>{
   c.onclick=()=>{
     let ad=c.querySelector("h3").innerText;
-    let fiyat=parseInt(c.querySelector(".price span").innerText);
+    let fiyat=parseInt(c.querySelector(".price").innerText);
     sepet[ad]?sepet[ad].adet++:sepet[ad]={fiyat,adet:1};
     guncelle();
   }
 });
 
 function guncelle(){
-  sepetList.innerHTML="";
+  sepetUI.innerHTML="";
   let t=0;
   for(let u in sepet){
     let ara=sepet[u].fiyat*sepet[u].adet;
     t+=ara;
     let li=document.createElement("li");
     li.innerText=`${u} x${sepet[u].adet} = ${ara} ₺`;
-    sepetList.appendChild(li);
+    sepetUI.appendChild(li);
   }
-  toplamSpan.innerText=t;
+  toplamUI.innerText=t;
 }
 
-function sepetiTemizle(){
+function sepetTemizle(){
   for(let k in sepet) delete sepet[k];
   guncelle();
 }
 
 function odemeSor(){
-  if(!Object.keys(sepet).length){alert("Sepet boş");return;}
+  if(!Object.keys(sepet).length){alert("Sepet Boş");return;}
   document.getElementById("odemeModal").style.display="flex";
 }
 
-function fisYazdir(odeme){
+function satisKaydet(odeme){
   document.getElementById("odemeModal").style.display="none";
-  document.getElementById("fisTarih").innerText="Tarih: "+new Date().toLocaleString("tr-TR");
-  document.getElementById("fisOdeme").innerText=odeme;
-  document.getElementById("fisToplam").innerText=toplamSpan.innerText;
-  const ul=document.getElementById("fisUrunler");
-  ul.innerHTML="";
+
+  let loglar=JSON.parse(localStorage.getItem("kasaLog"))||[];
+  let fisNo=loglar.length+1;
+
+  let urunler=[];
   for(let u in sepet){
-    let li=document.createElement("li");
-    li.innerText=`${u} x${sepet[u].adet} = ${sepet[u].adet*sepet[u].fiyat} ₺`;
-    ul.appendChild(li);
+    urunler.push({
+      ad:u,
+      adet:sepet[u].adet,
+      tutar:sepet[u].adet*sepet[u].fiyat
+    });
   }
-  let orj=document.body.innerHTML;
-  document.body.innerHTML=document.getElementById("fis").innerHTML;
-  document.body.innerHTML=orj;
-  location.reload();
+
+  loglar.push({
+    fisNo,
+    tarih:new Date().toLocaleString("tr-TR"),
+    odeme,
+    toplam:parseInt(toplamUI.innerText),
+    urunler
+  });
+
+  localStorage.setItem("kasaLog",JSON.stringify(loglar));
+  alert("✅ Satış Kaydedildi (Fiş #" + fisNo + ")");
+  sepetTemizle();
+}
+
+function logGoster(){
+  let loglar=JSON.parse(localStorage.getItem("kasaLog"))||[];
+  if(!loglar.length){alert("Kayıt Yok");return;}
+  let t="";
+  loglar.forEach(l=>{
+    t+=`Fiş #${l.fisNo}\n${l.tarih}\n${l.odeme}\n`;
+    l.urunler.forEach(u=>{
+      t+=`- ${u.ad} x${u.adet} = ${u.tutar} ₺\n`;
+    });
+    t+=`Toplam: ${l.toplam} ₺\n\n`;
+  });
+  alert(t);
 }
 </script>
 
 </body>
-
 </html>
